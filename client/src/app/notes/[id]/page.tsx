@@ -4,7 +4,7 @@ import styles from '../Notes.module.css';
 
 const getNote = async (noteId: string) => {
   const res = await fetch(
-    `http://127.0.0.1:8090/api/collections/test_base/records/${noteId}`,
+    `https://127.0.0.1:3001/api/notes/${noteId}`,
     {
       next: { revalidate: 10 },
     }
