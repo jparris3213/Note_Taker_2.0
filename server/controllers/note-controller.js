@@ -4,7 +4,7 @@ const noteController = {
     //get All
     getNote(req,res) {
         Note.find()
-        .sort({ createdAt: -1 })
+        .select('-__v')
         .then((dbNoteData) => {
             res.join(dbNoteData);
         })
