@@ -4,7 +4,7 @@ import styles from '../Notes.module.css';
 
 const getNote = async (noteId: string) => {
   const res = await fetch(
-    `https://127.0.0.1:3001/api/notes/${noteId}`,
+    `/api/notes/${noteId}`,
     {
       next: { revalidate: 10 },
     }
@@ -14,11 +14,11 @@ const getNote = async (noteId: string) => {
 }
 
 const NotePage = async ({ params }: any) =>{
-  const note = await getNote(params.id);
+  const note = await getNote(params._id);
 
   return (
     <div>
-      <h1>notes/{note.id}</h1>
+      <h1>notes/{note._id}</h1>
       <div className={styles.note}>
         <h3>{note.title}</h3>
         <h5>{note.content}</h5>

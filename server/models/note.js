@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const reactionSchema = require('./Reaction');
 const Schema = mongoose.Schema;
 const dateFormat = require("../utils/dateFormat")
 
@@ -12,6 +13,11 @@ const noteSchema = new Schema({
         type: String,
         default: "Note_Text"
     },
+    username: {
+        type: String,
+        required: true,
+    },
+    reactions: [reactionSchema],
     createdAt: {
         type: Date,
         get: timestamp => dateFormat(timestamp)

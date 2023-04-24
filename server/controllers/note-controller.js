@@ -6,7 +6,7 @@ const noteController = {
         Note.find()
         .select('-__v')
         .then((dbNoteData) => {
-            res.join(dbNoteData);
+            res.json(dbNoteData);
         })
         .catch((err) => {
             console.log(err);
@@ -21,7 +21,7 @@ const noteController = {
             if (!dbNoteData) {
                 return res.status(404).json({ message: "no Note with that ID" });
             }
-            res.join(dbNoteData);
+            res.json(dbNoteData);
         })
         .catch((err) => {
             console.log(err);
@@ -34,7 +34,7 @@ const noteController = {
         Note.create(req.body)
         .then((dbNoteData) => {
             return User.findOneAndUpdate(
-                { _id: req.body.userId },
+                { username: req.body.userId },
                 { $push: { notes: dbNoteData._id }},
                 { new: true }
             );

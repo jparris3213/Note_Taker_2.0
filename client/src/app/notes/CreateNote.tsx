@@ -19,7 +19,7 @@ const CreateNote = () => {
     }
 
     // Send the form data to our API and get a response.
-    const response = await fetch("https://127.0.0.1:3001/api/notes", {
+    const response = await fetch("https://localhost:3001/api/notes/", {
       // Body of the request is the JSON data we created above.
       body: JSON.stringify(data),
       // Tell the server we're sending JSON.
