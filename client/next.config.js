@@ -9,11 +9,11 @@ const nextConfig = {
     return [
       {
         source: "/api/notes/",
-        destination: "http://localhost:3001/api/notes"
+        destination: "https://localhost:3000/api/notes/"
       },
       {
         source: "/api/users/",
-        destination: "http://localhost:3001/api/users"
+        destination: "https://localhost:3000/api/users/"
       }
     ]
   }
